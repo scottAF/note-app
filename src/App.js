@@ -12,12 +12,18 @@ class App extends Component {
     };
   }
 
+  toggleNote = () => {  // Arrow funtion syntax
+    this.setState({
+      showNote: ! this.state.showNote // band operator will reverse the showNote boolean
+    });
+  }
+
   render() {
-    const { showNote } = this.state;
+    const { showNote } = this.state; // object destructuring
 
     return (
       <div className="App">
-        <Nav />
+        <Nav toggleNote={this.toggleNote} />
         { showNote ? <List /> : <Note /> }
       </div>
     );
