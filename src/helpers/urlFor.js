@@ -3,4 +3,4 @@ const urlFor = (endpoint) => {
 };
 
 
-export deault urlFor;
+export default urlFor;
