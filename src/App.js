@@ -27,6 +27,10 @@ class App extends Component {
     .catch((err) => console.log(err.response.data));
   }
 
+  getNote = () => {
+    console.log('Clicked');
+  }
+
   render() {
     const { showNote, notes } = this.state; // object destructuring
 
@@ -36,7 +40,11 @@ class App extends Component {
         { showNote ? 
           <Note /> 
           : 
-          <List getNotes={this.getNotes} notes={notes}/> 
+          <List 
+            getNotes={this.getNotes} 
+            notes={notes} 
+            getNote={this.getNote} 
+          /> 
         }
       </div>
     );
