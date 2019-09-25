@@ -34,11 +34,21 @@ class App extends Component {
     .catch((err) => console.log(err.response.data));
   }
 
-  submitNote = (data) => {
-    axios.post(urlFor('notes'), data)
+  performSubmitRequest = (data, id) => {
+    if (id) {
+      // TODO: Perform update request
+      return axios.patch(urlFor(`notes/${id}`), data);
+    } else {
+      return axios.post(urlFor('notes'), data);
+    }
+  }
+
+  submitNote = (data, id) => {
+    this.performSubmitRequest(data, id)
     .then((res) => this.setState({ showNote: false }) )
     .catch((err) => console.log(err.response.data) );
   }
+
 
   render() {
     const { showNote, notes, note } = this.state; // object destructuring
