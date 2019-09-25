@@ -3,7 +3,7 @@ import NoteCard from './NoteCard';
 
 class List extends React.Component {
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.getNotes();
   }
 
