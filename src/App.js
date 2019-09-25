@@ -18,7 +18,8 @@ class App extends Component {
 
   toggleNote = () => {  // Arrow funtion syntax
     this.setState({
-      showNote: ! this.state.showNote // band operator will reverse the showNote boolean
+      showNote: ! this.state.showNote, // band operator will reverse the showNote boolean
+      note: {}
     });
   }
 
@@ -36,7 +37,7 @@ class App extends Component {
 
   performSubmitRequest = (data, id) => {
     if (id) {
-      // TODO: Perform update request
+      // TODO: Cheack ID to perform update request
       return axios.patch(urlFor(`notes/${id}`), data);
     } else {
       return axios.post(urlFor('notes'), data);
@@ -46,6 +47,13 @@ class App extends Component {
   submitNote = (data, id) => {
     this.performSubmitRequest(data, id)
     .then((res) => this.setState({ showNote: false }) )
+    .catch((err) => console.log(err.response.data) );
+  }
+
+  deleteNote = (id) => {
+    const newNoteState = this.state.notes.filter((note) => note.id !== id);
+    axios.delete(urlFor(`notes/${id}`))
+    .then((res) => this.setState({ notes: newNoteState }))
     .catch((err) => console.log(err.response.data) );
   }
 
@@ -65,7 +73,8 @@ class App extends Component {
           <List 
             getNotes={this.getNotes} 
             notes={notes} 
-            getNote={this.getNote} 
+            getNote={this.getNote}
+            deleteNote={this.deleteNote}
           /> 
         }
       </div>
