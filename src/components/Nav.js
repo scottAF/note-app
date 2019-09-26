@@ -7,7 +7,7 @@ class Nav extends React.Component{
       <div className="nav-container">
         <div className="nav-logo">Note</div>
         <div className="nav-button" onClick={() => toggleNote()}>
-          { showNote ? 'Cancel' : '+ New Note' }
+          { showNote ? 'Done' : '+ New Note' }
         </div>
       </div>      
     );
