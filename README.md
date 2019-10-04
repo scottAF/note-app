@@ -1,6 +1,6 @@
 ## Note-App
 
-This project is like a sticky note application that allows you to create, edit, delete, and tag notes that can help you orginize your thoughts. Built useing React Library.
+This project is like a sticky note application that allows you to create, edit, delete, and tag notes that can help you organize your thoughts. Built using React Library. 
 
 ## Available Scripts
 
