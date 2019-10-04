@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is like a sticky note application that allows you to create, edit, delete, and tag notes that can help you orginize your thoughts. Built useing React Library.
 
 ## Available Scripts
 
